@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      div#show {
+        width:800px;
+        margin: 0 auto;
+        background: pink;
+      }
+
+      div#show div{
+        border: 1px solid black;
+        width: calc(46% - 2px);
+        padding: 1%;
+        margin: 1%;
+        float: left;
+      }
+
+      div#show div.destacado{
+        border: 5px solid purple;
+        width: calc(96% - 2px);
+        padding: 1%;
+        margin: 1%;
+      }
+
+      div#show div.fin{
+        width: 100%;
+        clear: both;
+        background: red;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="show"></div>
+
+    <script>
+
+      const trabajos = [
+      {
+        title: "Trabajo 1",
+        category:"destacado",
+        photo: "https://picsum.photos/id/237/500/400",
+        description: "Este trabajo tan lindo lo hice en tal momento, para tal ramo.",
+      },
+      {
+        title: "Trabajo 2",
+        category: "UX",
+        photo: "https://picsum.photos/id/102/200/300",
+        description: "Otro trabajo que hice para otro curso"
+      },
+      {
+        title: "Trabajo 3",
+        category: "UX",
+        photo: "https://picsum.photos/id/21/200/300",
+        description: "Otro trabajo que hice para otro curso",
+      },
+      {
+        title: "Trabajo 4",
+        category: "UX",
+        photo: "https://picsum.photos/id/40/200/300",
+        description: "Otro trabajo que hice para otro curso",
+      },
+      {
+        title: "Trabajo 5",
+        category: "UX",
+        photo: "https://picsum.photos/id/230/200/300",
+        description: "Otro trabajo que hice para otro curso",
+      },
+      ];
+
+      const parrafos = document.querySelector("#show");
+
+      trabajos.forEach((v) => {
+        parrafos.innerHTML += `
+      <div class="${v.category}">
+        <h1>${v.title}</h1>
+        <img src="${v.photo}"/>;
+        <p>${v.description}</p>;
+        </div>`;
+      });
+
+      parrafos.innerHTML += '<div class="fin">Fin!!</div>'
+
+    </script>
+  </body>
+</html>
